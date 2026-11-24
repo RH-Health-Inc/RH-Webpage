@@ -13,780 +13,61 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 <title>Privacy Policy — Robinhood Health</title>
-<meta name="description" content="How Robinhood Health collects, uses, and protects your personal and health information." />
+<meta name="description" content="How Robinhood Health collects, uses, and protects your information." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<style>
-/* ————————————————————————————————————————
-   Robinhood Health — Shared design system
-   Referenced by all sub-pages.
-   ———————————————————————————————————————— */
-
-:root {
-  /* ink scale */
-  --ink: #2F2B2B;
-  --ink-2: #4A4747;
-  --ink-3: #7B7876;
-
-  /* deck-derived paper palette */
-  --paper: #FAF2E4;
-  --paper-2: #F5EAD5;
-  --paper-3: #EFE2C8;
-  --rule: #D7CCB2;
-  --rule-2: #B8AD91;
-  --cream: #FDF8EC;
-
-  /* accents */
-  --forest: #1F3B2E;
-  --forest-2: #2D5143;
-  --mint: #D6F0DD;
-  --mint-2: #B7DFC3;
-  --lavender: #E3D3F4;
-  --periwinkle: #CAD8F7;
-  --peach: #F3E1CC;
-  --clay: #C17B5A;
-  --russet: #A8492B;
-
-  --ff-display: 'Newsreader', 'Times New Roman', serif;
-  --ff-body: 'IBM Plex Sans', system-ui, sans-serif;
-  --ff-mono: 'IBM Plex Mono', ui-monospace, monospace;
-
-  --max: 1280px;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: var(--ff-body);
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.55;
-  color: var(--ink);
-  background: var(--paper);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed; inset: 0;
-  pointer-events: none;
-  opacity: .25;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.06  0 0 0 0 0.08  0 0 0 0 0.06  0 0 0 0.07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  z-index: 1;
-}
-main, header, footer, .masthead, .nav { position: relative; z-index: 2; }
-
-a { color: inherit; text-decoration: none; }
-button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
-
-/* ————— masthead ————— */
-.masthead {
-  border-bottom: 1px solid var(--rule);
-  font-family: var(--ff-mono);
-  font-size: 11px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  background: var(--paper-2);
-}
-.masthead-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 10px 32px;
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-}
-.masthead-inner span + span::before {
-  content: "·";
-  margin: 0 10px;
-  color: var(--rule-2);
-}
-
-/* ————— nav ————— */
-.nav {
-  border-bottom: 1px solid var(--rule);
-  background: var(--paper);
-  position: sticky; top: 0; z-index: 50;
-}
-.nav-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 18px 32px;
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-.brand {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  font-family: var(--ff-display);
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  color: var(--forest);
-}
-.brand-mark {
-  width: 14px; height: 14px;
-  position: relative; top: 1px;
-  transition: transform .7s cubic-bezier(.34,1.56,.64,1);
-}
-.brand:hover .brand-mark { transform: rotate(24deg) scale(1.08); }
-.nav-links {
-  display: flex;
-  gap: 28px;
-  margin-left: auto;
-  font-size: 14px;
-  color: var(--ink-2);
-}
-.nav-links a { transition: color .2s; }
-.nav-links a:hover { color: var(--forest); }
-.nav-links a.current { color: var(--forest); font-weight: 500; }
-.nav-cta {
-  font-family: var(--ff-mono);
-  font-size: 11px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: 10px 16px;
-  border: 1px solid var(--forest);
-  color: var(--forest);
-  transition: all .2s;
-}
-.nav-cta:hover { background: var(--forest); color: var(--cream); }
-
-/* ————— hero ————— */
-.hero {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 96px 32px 64px;
-  position: relative;
-}
-.eyebrow {
-  font-family: var(--ff-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin-bottom: 32px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.eyebrow::before {
-  content: "";
-  width: 28px; height: 1px;
-  background: var(--ink-3);
-}
-.hero h1 {
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: clamp(42px, 6.5vw, 88px);
-  line-height: 1.02;
-  letter-spacing: -0.025em;
-  color: var(--ink);
-  max-width: 18ch;
-  margin-bottom: 40px;
-}
-.hero h1 em {
-  font-style: italic;
-  color: var(--forest);
-  font-weight: 400;
-}
-.hero-lead {
-  font-family: var(--ff-display);
-  font-weight: 300;
-  font-size: clamp(19px, 1.8vw, 24px);
-  line-height: 1.5;
-  color: var(--ink-2);
-  max-width: 60ch;
-  margin-bottom: 48px;
-}
-.hero-ctas {
-  display: flex; gap: 14px; flex-wrap: wrap;
-}
-
-.btn {
-  font-family: var(--ff-mono);
-  font-size: 12px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: 16px 24px;
-  transition: all .2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-.btn-primary { background: var(--forest); color: var(--cream); }
-.btn-primary:hover { background: var(--ink); }
-.btn-ghost { border: 1px solid var(--rule-2); color: var(--ink-2); }
-.btn-ghost:hover { border-color: var(--forest); color: var(--forest); }
-.btn svg { width: 10px; height: 10px; transition: transform .2s; }
-.btn:hover svg { transform: translateX(3px); }
-
-/* ————— section framework ————— */
-section { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
-.section-hd {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 48px;
-  padding: 72px 0 48px;
-  border-top: 1px solid var(--rule);
-  align-items: end;
-  position: relative;
-}
-.section-hd::before {
-  content: attr(data-num);
-  position: absolute;
-  top: 40px;
-  right: 0;
-  font-family: var(--ff-display);
-  font-weight: 300;
-  font-style: italic;
-  font-size: clamp(120px, 18vw, 240px);
-  line-height: 1;
-  color: var(--forest);
-  opacity: .05;
-  letter-spacing: -0.04em;
-  pointer-events: none;
-  z-index: 0;
-  user-select: none;
-}
-.section-hd > * { position: relative; z-index: 1; }
-.section-num {
-  font-family: var(--ff-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-.section-num b {
-  display: block;
-  font-weight: 500;
-  color: var(--forest);
-  font-size: 13px;
-  margin-bottom: 6px;
-}
-.section-hd h2 {
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: clamp(32px, 4.2vw, 56px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  max-width: 20ch;
-}
-.section-hd h2 em { font-style: italic; color: var(--forest); }
-.section-lede {
-  font-family: var(--ff-display);
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 1.5;
-  color: var(--ink-2);
-  max-width: 58ch;
-  margin-top: 20px;
-}
-
-/* ornament */
-.ornament {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 64px 0 40px;
-  color: var(--russet);
-}
-.ornament svg { width: 80px; height: 14px; opacity: .85; }
-.ornament.quiet { opacity: .4; }
-
-/* ————— prose helpers used on inner pages ————— */
-.prose {
-  max-width: 68ch;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 17px;
-  line-height: 1.7;
-  color: var(--ink-2);
-}
-.prose p + p { margin-top: 20px; }
-.prose p.lead {
-  font-family: var(--ff-display);
-  font-weight: 300;
-  font-size: 22px;
-  line-height: 1.5;
-  color: var(--ink);
-  margin-bottom: 32px;
-}
-.prose h3 {
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: 28px;
-  letter-spacing: -0.015em;
-  color: var(--ink);
-  margin: 48px 0 16px;
-}
-.prose blockquote {
-  font-family: var(--ff-display);
-  font-style: italic;
-  font-weight: 300;
-  font-size: 22px;
-  line-height: 1.45;
-  color: var(--forest);
-  border-left: 2px solid var(--forest);
-  padding: 8px 0 8px 24px;
-  margin: 40px 0;
-}
-
-/* ————— step-list helper for workflow sections ————— */
-.steplist {
-  list-style: none;
-  counter-reset: steps;
-  border-top: 1px solid var(--rule);
-}
-.steplist li {
-  counter-increment: steps;
-  display: grid;
-  grid-template-columns: 90px 1fr;
-  gap: 32px;
-  padding: 28px 0;
-  border-bottom: 1px solid var(--rule);
-  align-items: baseline;
-}
-.steplist li::before {
-  content: "Step " counter(steps, decimal-leading-zero);
-  font-family: var(--ff-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  color: var(--russet);
-  text-transform: uppercase;
-  padding-top: 6px;
-}
-.steplist li strong {
-  display: block;
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: 22px;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  margin-bottom: 6px;
-}
-.steplist li p {
-  color: var(--ink-2);
-  font-size: 15px;
-  line-height: 1.6;
-  max-width: 60ch;
-}
-@media (max-width: 700px) {
-  .steplist li { grid-template-columns: 1fr; gap: 8px; }
-}
-
-/* ————— definition grid (what you get / what we need) ————— */
-.defgrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  background: var(--rule);
-  border: 1px solid var(--rule);
-  border-radius: 4px;
-  overflow: hidden;
-}
-.defgrid > div {
-  background: var(--paper);
-  padding: 28px 28px 32px;
-}
-.defgrid h4 {
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: 20px;
-  letter-spacing: -0.01em;
-  color: var(--forest);
-  margin-bottom: 10px;
-}
-.defgrid p {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--ink-2);
-}
-@media (max-width: 700px) { .defgrid { grid-template-columns: 1fr; } }
-
-/* ————— faq accordion (reusable) ————— */
-.faq-list { border-top: 1px solid var(--ink); }
-.faq-item { border-bottom: 1px solid var(--rule); transition: background .3s ease; }
-.faq-item.open { background: var(--paper-2); }
-.faq-q {
-  width: 100%;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  padding: 28px 20px 28px 0;
-  text-align: left;
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: clamp(20px, 2.2vw, 26px);
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  transition: color .2s;
-}
-.faq-item.open .faq-q { padding-left: 20px; }
-.faq-q:hover { color: var(--forest); }
-.faq-q .num {
-  font-family: var(--ff-mono);
-  font-size: 11px;
-  letter-spacing: .1em;
-  color: var(--ink-3);
-  margin-right: 24px;
-  min-width: 24px;
-}
-.faq-q .label { flex: 1; }
-.faq-q .icon {
-  width: 16px; height: 16px;
-  position: relative;
-  margin-left: 20px;
-  flex-shrink: 0;
-  transition: transform .4s cubic-bezier(.2,.7,.2,1);
-}
-.faq-q .icon::before, .faq-q .icon::after {
-  content: "";
-  position: absolute;
-  background: var(--ink-2);
-  transition: transform .3s;
-}
-.faq-q .icon::before { width: 16px; height: 1px; top: 50%; left: 0; }
-.faq-q .icon::after { width: 1px; height: 16px; left: 50%; top: 0; }
-.faq-item.open .faq-q .icon { transform: rotate(90deg); }
-.faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
-.faq-a-inner {
-  padding: 0 20px 32px 60px;
-  max-width: 72ch;
-  color: var(--ink-2);
-  font-size: 16px;
-  line-height: 1.65;
-}
-@media (max-width: 600px) { .faq-a-inner { padding-left: 0; } }
-
-/* ————— cta section ————— */
-.cta {
-  background: var(--forest);
-  color: var(--cream);
-  max-width: none;
-  margin: 0;
-  padding: 96px 32px 112px;
-  position: relative;
-  overflow: hidden;
-}
-.cta::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  pointer-events: none;
-  opacity: .8;
-}
-.cta-inner { max-width: var(--max); margin: 0 auto; position: relative; }
-.cta .eyebrow { color: rgba(253, 248, 236, .6); }
-.cta .eyebrow::before { background: rgba(253, 248, 236, .4); }
-.cta h2 {
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: clamp(40px, 6vw, 80px);
-  line-height: 1.02;
-  letter-spacing: -0.025em;
-  margin-bottom: 32px;
-  max-width: 18ch;
-}
-.cta h2 em { font-style: italic; color: var(--mint); }
-.cta p {
-  font-family: var(--ff-display);
-  font-weight: 300;
-  font-size: 20px;
-  line-height: 1.5;
-  color: rgba(253, 248, 236, .85);
-  max-width: 52ch;
-  margin-bottom: 48px;
-}
-.cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  padding: 18px 28px;
-  background: var(--cream);
-  color: var(--forest);
-  font-family: var(--ff-mono);
-  font-size: 12px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  transition: all .2s;
-}
-.cta-btn:hover { background: var(--mint); }
-.cta-btn svg { width: 12px; height: 12px; transition: transform .2s; }
-.cta-btn:hover svg { transform: translateX(3px); }
-.cta-contact {
-  margin-top: 40px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(253, 248, 236, .2);
-  font-family: var(--ff-mono);
-  font-size: 12px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: rgba(253, 248, 236, .7);
-}
-.cta-contact a {
-  color: var(--mint);
-  border-bottom: 1px solid rgba(214, 240, 221, .35);
-  padding-bottom: 2px;
-}
-
-/* ————— footer ————— */
-footer {
-  padding: 64px 32px 40px;
-  border-top: 1px solid var(--rule);
-  background: var(--paper-2);
-  font-size: 13px;
-  color: var(--ink-3);
-}
-.footer-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 48px;
-  margin-bottom: 48px;
-}
-.footer-brand .brand { margin-bottom: 20px; }
-.footer-brand p {
-  max-width: 36ch;
-  line-height: 1.55;
-  color: var(--ink-2);
-  font-size: 13px;
-}
-.footer-col h4 {
-  font-family: var(--ff-mono);
-  font-size: 10px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin-bottom: 16px;
-  font-weight: 500;
-}
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-col a { color: var(--ink-2); transition: color .2s; }
-.footer-col a:hover { color: var(--forest); }
-.footer-colophon {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding-top: 24px;
-  border-top: 1px solid var(--rule);
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-  font-family: var(--ff-mono);
-  font-size: 10px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-.footer-colophon .legal { display: flex; gap: 20px; flex-wrap: wrap; }
-.footer-mark {
-  color: var(--russet);
-  display: inline-block;
-  margin-right: 8px;
-  vertical-align: middle;
-}
-.footer-mark svg { width: 22px; height: 8px; display: block; }
-
-/* reveal animation */
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
-.reveal.in { opacity: 1; transform: translateY(0); }
-
-/* mobile */
-@media (max-width: 900px) {
-  .nav-links { display: none; }
-  .nav-cta { margin-left: auto; }
-}
-@media (max-width: 800px) { .footer-inner { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 500px) { .footer-inner { grid-template-columns: 1fr; } }
-@media (max-width: 700px) {
-  .section-hd { grid-template-columns: 1fr; gap: 20px; }
-}
-
-/* legal page layout */
-.legal-page {
-  max-width: 72ch;
-  margin: 0 auto;
-  padding: 0 32px;
-}
-.legal-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 24px 0;
-  margin-bottom: 48px;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  font-family: var(--ff-mono);
-  font-size: 11px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-.legal-meta b { color: var(--russet); font-weight: 500; }
-
-.legal-callout {
-  padding: 32px 40px;
-  background: var(--paper-2);
-  border-left: 3px solid var(--russet);
-  border-radius: 2px;
-  margin-bottom: 56px;
-  font-family: var(--ff-display);
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 1.55;
-  color: var(--ink-2);
-}
-.legal-callout strong { color: var(--ink); font-weight: 500; }
-
-.legal-content {
-  font-size: 16px;
-  line-height: 1.75;
-  color: var(--ink-2);
-}
-.legal-content h2 {
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: clamp(26px, 3vw, 34px);
-  letter-spacing: -0.015em;
-  color: var(--ink);
-  margin: 56px 0 16px;
-  padding-top: 24px;
-  border-top: 1px solid var(--rule);
-}
-.legal-content h2:first-child {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: 0;
-}
-.legal-content h3 {
-  font-family: var(--ff-display);
-  font-weight: 500;
-  font-size: 20px;
-  letter-spacing: -0.005em;
-  color: var(--ink);
-  margin: 28px 0 8px;
-}
-.legal-content p { margin-bottom: 16px; }
-.legal-content p:last-child { margin-bottom: 0; }
-.legal-content ul {
-  list-style: none;
-  margin: 16px 0 24px;
-  padding: 0;
-}
-.legal-content ul li {
-  position: relative;
-  padding: 6px 0 6px 28px;
-  line-height: 1.65;
-}
-.legal-content ul li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 17px;
-  width: 14px;
-  height: 1px;
-  background: var(--russet);
-}
-.legal-content strong { color: var(--ink); font-weight: 500; }
-.legal-content a {
-  color: var(--forest);
-  border-bottom: 1px solid rgba(31, 59, 46, .3);
-  padding-bottom: 1px;
-  transition: all .2s;
-}
-.legal-content a:hover {
-  border-bottom-color: var(--forest);
-}
-
-.legal-contact-card {
-  margin-top: 56px;
-  padding: 32px 36px;
-  background: var(--paper-2);
-  border-radius: 10px;
-}
-.legal-contact-card h4 {
-  font-family: var(--ff-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--russet);
-  margin-bottom: 14px;
-}
-.legal-contact-card p {
-  font-size: 15px;
-  line-height: 1.65;
-  color: var(--ink-2);
-  margin-bottom: 8px;
-}
-.legal-contact-card a {
-  color: var(--forest);
-  font-weight: 500;
-}
-
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/site.css" />
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<div class="masthead">
-  <div class="masthead-inner">
-    <div>
-      <span>Robinhood Health</span>
-      <span>Privacy Policy</span>
-    </div>
-    <div>
-      <span>A virtual medical group</span>
-    </div>
-  </div>
-</div>
-
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="brand">
-      <img src="/RH-Logo.png" alt="Robinhood Health" class="brand-mark" />
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/" aria-label="Robinhood Health home">
+      <img src="/assets/rh-logo-256.png" alt="" width="40" height="40" />
       Robinhood Health
     </a>
-    <div class="nav-links">
-      <a href="/howitworks/">How it works</a>
-      <a href="/model/">Model</a>
-      <a href="/partners/">Partners</a>
-      <a href="/platform/">Platform</a>
-      <a href="/about/">About</a>
-      <a href="/careers/">Careers</a>
+    <nav aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="/#how">How it works</a></li>
+        <li><a href="/#screenings">What we help with</a></li>
+        <li><a href="/#partners">For partners</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/careers/">Careers</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary" href="/#contact">Contact us</a>
+    <details class="menu">
+      <summary>Menu</summary>
+      <ul>
+        <li><a href="/#how">How it works</a></li>
+        <li><a href="/#screenings">What we help with</a></li>
+        <li><a href="/#partners">For partners</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/careers/">Careers</a></li>
+        <li><a href="/#contact">Contact us</a></li>
+      </ul>
+    </details>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Privacy Policy</p>
+      <h1>How we collect, use, and protect your information.</h1>
+      
     </div>
-    <a href="/#cta" class="nav-cta">Request briefing →</a>
-  </div>
-</nav>
+  </section>
 
-<main>
-
-<section class="hero">
-  <div class="eyebrow">Privacy Policy</div>
-  <h1 class="reveal">How we collect, use, <em>and protect your information.</em></h1>
-</section>
-
-<div class="legal-page">
-  <div class="legal-meta">
-    <span>Privacy Policy</span>
-    <span><b>Last updated</b> · June 10, 2026</span>
-  </div>
-
-  <div class="legal-callout">
-    <strong>RH Health Inc. (dba Robinhood Health)</strong> is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services.
-  </div>
-
-  <div class="legal-content">
-    <h2>Information we collect</h2>
+  <section class="prose-wrap">
+    <div class="wrap">
+      <div class="legal-meta"><span>Privacy Policy</span>
+    <span><b>Last updated</b> · June 10, 2026</span></div>
+      <div class="legal-callout"><strong>RH Health Inc. (dba Robinhood Health)</strong> is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services.</div>
+      <div class="prose">
+<h2>Information we collect</h2>
     <p>We may collect the following types of information:</p>
     <ul>
       <li><strong>Personal Information.</strong> Name, date of birth, address, phone number, email address, and Social Security Number when required for insurance verification.</li>
@@ -860,82 +141,57 @@ footer {
 
     <h2>California privacy rights</h2>
     <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA), including the right to know what personal information we collect, request deletion, and opt out of the sale of personal information. Note that health information governed by HIPAA is exempt from certain CCPA/CPRA requirements.</p>
-  </div>
-
-  <div class="legal-contact-card">
-    <h4>Contact us</h4>
-    <p>If you have questions about this Privacy Policy or our privacy practices, please contact us at <a href="mailto:privacy@robinhoodhealth.co">privacy@robinhoodhealth.co</a>.</p>
-  </div>
-</div>
-
-<div class="ornament quiet" aria-hidden="true" style="margin-top: 96px;">
-  <svg viewBox="0 0 80 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="2" cy="7" r="1.5" fill="currentColor"/>
-    <line x1="6" y1="7" x2="70" y2="7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-    <polyline points="62,3 72,7 62,11" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-</div>
-
-
+      </div>
+      <div class="legal-contact-card"><h4>Contact us</h4>
+    <p>If you have questions about this Privacy Policy or our privacy practices, please contact us at <a href="mailto:privacy@robinhoodhealth.co">privacy@robinhoodhealth.co</a>.</p></div>
+    </div>
+  </section>
 </main>
 
 <footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a href="/" class="brand">
-        <img src="/RH-Logo.png" alt="Robinhood Health" class="brand-mark" />
-        Robinhood Health
-      </a>
-      <p>A virtual medical group closing preventive screening gaps for high-risk Medicaid populations. RH Health Inc., dba Robinhood Health.</p>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="/"><img src="/assets/rh-logo-256.png" alt="" width="40" height="40" />Robinhood Health</a>
+        <p>Health screenings from home, in partnership with your community health center.</p>
+      </div>
+      <div>
+        <h4>Care</h4>
+        <ul>
+          <li><a href="/#screenings">What we help with</a></li>
+          <li><a href="/#how">How it works</a></li>
+          <li><a href="/#patients">Questions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Work with us</h4>
+        <ul>
+          <li><a href="/fqhc/">For health centers</a></li>
+          <li><a href="/mco/">For Medicaid plans</a></li>
+          <li><a href="/#contact">Contact us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/careers/">Careers</a></li>
+          <li><a href="/letters/">Founder’s letters</a></li>
+          <li><a href="/story/">Robinhood Tales</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>Program</h4>
-      <ul>
-        <li><a href="/howitworks/">How it works</a></li>
-        <li><a href="/model/">The model</a></li>
-        <li><a href="/platform/">Platform</a></li>
-        <li><a href="/#roadmap">Roadmap</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Partners</h4>
-      <ul>
-        <li><a href="/partners/">Overview</a></li>
-        <li><a href="/fqhc/">For FQHCs</a></li>
-        <li><a href="/mco/">For Medicaid plans</a></li>
-        <li><a href="/#cta">Request briefing</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/careers/">Careers</a></li>
-        <li><a href="https://www.robinhoodhealth.co/story/">Robinhood Tales</a></li>
-        <li><a href="/letters/">Founder's letters</a></li>
-        <li><a href="mailto:info@robinhoodhealth.co">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-colophon">
-    <div><span class="footer-mark"><svg viewBox="0 0 22 8" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="4" x2="18" y2="4" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><polyline points="14,1 20,4 14,7" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></span>© 2026 RH Health Inc., dba Robinhood Health</div>
+    <p class="disclaimer">Not for emergencies: if you are having a medical emergency, call 911. If you are in crisis, call or text 988. Care is provided by licensed clinicians of Robinhood Health.</p>
     <div class="legal">
-      <a href="/privacy/">Privacy</a>
-      <a href="/terms/">Terms</a>
-      <a href="/hipaa/">HIPAA notice</a>
-      <a href="/accessibility/">Accessibility</a>
+      <span>© 2026 RH Health Inc., dba Robinhood Health · Los Angeles, CA</span>
+      <nav aria-label="Legal">
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/hipaa/">HIPAA notice</a>
+        <a href="/accessibility/">Accessibility</a>
+      </nav>
     </div>
   </div>
 </footer>
-
-<script>
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-  });
-}, { rootMargin: '0px 0px -80px 0px' });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-</script>
-
 </body>
 </html>

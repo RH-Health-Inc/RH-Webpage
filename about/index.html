@@ -13,850 +13,181 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 <title>About — Robinhood Health</title>
-<meta name="description" content="Robinhood Health is a virtual medical group built on a narrow thesis: that care gaps are a distribution problem before they are anything else." />
+<meta name="description" content="Robinhood Health is a virtual medical group that partners with community health centers and states to bring preventive care home to people on Medicaid." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<style>
-/* ————————————————————————————————————————
-   Robinhood Health — Shared design system
-   Referenced by all sub-pages.
-   ———————————————————————————————————————— */
-
-:root {
-  /* ink scale */
-  --ink: #2F2B2B;
-  --ink-2: #4A4747;
-  --ink-3: #7B7876;
-
-  /* deck-derived paper palette */
-  --paper: #FAF2E4;
-  --paper-2: #F5EAD5;
-  --paper-3: #EFE2C8;
-  --rule: #D7CCB2;
-  --rule-2: #B8AD91;
-  --cream: #FDF8EC;
-
-  /* accents */
-  --forest: #1F3B2E;
-  --forest-2: #2D5143;
-  --mint: #D6F0DD;
-  --mint-2: #B7DFC3;
-  --lavender: #E3D3F4;
-  --periwinkle: #CAD8F7;
-  --peach: #F3E1CC;
-  --clay: #C17B5A;
-  --russet: #A8492B;
-
-  --ff-display: 'Newsreader', 'Times New Roman', serif;
-  --ff-body: 'IBM Plex Sans', system-ui, sans-serif;
-  --ff-mono: 'IBM Plex Mono', ui-monospace, monospace;
-
-  --max: 1280px;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: var(--ff-body);
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.55;
-  color: var(--ink);
-  background: var(--paper);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed; inset: 0;
-  pointer-events: none;
-  opacity: .25;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.06  0 0 0 0 0.08  0 0 0 0 0.06  0 0 0 0.07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  z-index: 1;
-}
-main, header, footer, .masthead, .nav { position: relative; z-index: 2; }
-
-a { color: inherit; text-decoration: none; }
-button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
-
-/* ————— masthead ————— */
-.masthead {
-  border-bottom: 1px solid var(--rule);
-  font-family: var(--ff-mono);
-  font-size: 11px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  background: var(--paper-2);
-}
-.masthead-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 10px 32px;
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-}
-.masthead-inner span + span::before {
-  content: "·";
-  margin: 0 10px;
-  color: var(--rule-2);
-}
-
-/* ————— nav ————— */
-.nav {
-  border-bottom: 1px solid var(--rule);
-  background: var(--paper);
-  position: sticky; top: 0; z-index: 50;
-}
-.nav-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 18px 32px;
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--ff-display);
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  color: var(--forest);
-}
-.brand-mark {
-  width: 36px; height: 36px;
-  display: block;
-  object-fit: contain;
-  transition: transform .7s cubic-bezier(.34,1.56,.64,1);
-}
-.brand:hover .brand-mark { transform: scale(1.08); }
-.nav-links {
-  display: flex;
-  gap: 28px;
-  margin-left: auto;
-  font-size: 14px;
-  color: var(--ink-2);
-}
-.nav-links a { transition: color .2s; }
-.nav-links a:hover { color: var(--forest); }
-.nav-links a.current { color: var(--forest); font-weight: 500; }
-.nav-cta {
-  font-family: var(--ff-mono);
-  font-size: 11px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: 10px 16px;
-  border: 1px solid var(--forest);
-  color: var(--forest);
-  transition: all .2s;
-}
-.nav-cta:hover { background: var(--forest); color: var(--cream); }
-
-/* ————— hero ————— */
-.hero {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 96px 32px 64px;
-  position: relative;
-}
-.eyebrow {
-  font-family: var(--ff-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin-bottom: 32px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.eyebrow::before {
-  content: "";
-  width: 28px; height: 1px;
-  background: var(--ink-3);
-}
-.hero h1 {
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: clamp(42px, 6.5vw, 88px);
-  line-height: 1.02;
-  letter-spacing: -0.025em;
-  color: var(--ink);
-  max-width: 18ch;
-  margin-bottom: 40px;
-}
-.hero h1 em {
-  font-style: italic;
-  color: var(--forest);
-  font-weight: 400;
-}
-.hero-lead {
-  font-family: var(--ff-display);
-  font-weight: 300;
-  font-size: clamp(19px, 1.8vw, 24px);
-  line-height: 1.5;
-  color: var(--ink-2);
-  max-width: 60ch;
-  margin-bottom: 48px;
-}
-.hero-ctas {
-  display: flex; gap: 14px; flex-wrap: wrap;
-}
-
-.btn {
-  font-family: var(--ff-mono);
-  font-size: 12px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: 16px 24px;
-  transition: all .2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-.btn-primary { background: var(--forest); color: var(--cream); }
-.btn-primary:hover { background: var(--ink); }
-.btn-ghost { border: 1px solid var(--rule-2); color: var(--ink-2); }
-.btn-ghost:hover { border-color: var(--forest); color: var(--forest); }
-.btn svg { width: 10px; height: 10px; transition: transform .2s; }
-.btn:hover svg { transform: translateX(3px); }
-
-/* ————— section framework ————— */
-section { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
-.section-hd {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 48px;
-  padding: 72px 0 48px;
-  border-top: 1px solid var(--rule);
-  align-items: end;
-  position: relative;
-}
-.section-hd::before {
-  content: attr(data-num);
-  position: absolute;
-  top: 40px;
-  right: 0;
-  font-family: var(--ff-display);
-  font-weight: 300;
-  font-style: italic;
-  font-size: clamp(120px, 18vw, 240px);
-  line-height: 1;
-  color: var(--forest);
-  opacity: .05;
-  letter-spacing: -0.04em;
-  pointer-events: none;
-  z-index: 0;
-  user-select: none;
-}
-.section-hd > * { position: relative; z-index: 1; }
-.section-num {
-  font-family: var(--ff-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-.section-num b {
-  display: block;
-  font-weight: 500;
-  color: var(--forest);
-  font-size: 13px;
-  margin-bottom: 6px;
-}
-.section-hd h2 {
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: clamp(32px, 4.2vw, 56px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  max-width: 20ch;
-}
-.section-hd h2 em { font-style: italic; color: var(--forest); }
-.section-lede {
-  font-family: var(--ff-display);
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 1.5;
-  color: var(--ink-2);
-  max-width: 58ch;
-  margin-top: 20px;
-}
-
-/* ornament */
-.ornament {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 64px 0 40px;
-  color: var(--russet);
-}
-.ornament svg { width: 80px; height: 14px; opacity: .85; }
-.ornament.quiet { opacity: .4; }
-
-/* ————— prose helpers used on inner pages ————— */
-.prose {
-  max-width: 68ch;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 17px;
-  line-height: 1.7;
-  color: var(--ink-2);
-}
-.prose p + p { margin-top: 20px; }
-.prose p.lead {
-  font-family: var(--ff-display);
-  font-weight: 300;
-  font-size: 22px;
-  line-height: 1.5;
-  color: var(--ink);
-  margin-bottom: 32px;
-}
-.prose h3 {
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: 28px;
-  letter-spacing: -0.015em;
-  color: var(--ink);
-  margin: 48px 0 16px;
-}
-.prose blockquote {
-  font-family: var(--ff-display);
-  font-style: italic;
-  font-weight: 300;
-  font-size: 22px;
-  line-height: 1.45;
-  color: var(--forest);
-  border-left: 2px solid var(--forest);
-  padding: 8px 0 8px 24px;
-  margin: 40px 0;
-}
-
-/* ————— step-list helper for workflow sections ————— */
-.steplist {
-  list-style: none;
-  counter-reset: steps;
-  border-top: 1px solid var(--rule);
-}
-.steplist li {
-  counter-increment: steps;
-  display: grid;
-  grid-template-columns: 90px 1fr;
-  gap: 32px;
-  padding: 28px 0;
-  border-bottom: 1px solid var(--rule);
-  align-items: baseline;
-}
-.steplist li::before {
-  content: "Step " counter(steps, decimal-leading-zero);
-  font-family: var(--ff-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  color: var(--russet);
-  text-transform: uppercase;
-  padding-top: 6px;
-}
-.steplist li strong {
-  display: block;
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: 22px;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  margin-bottom: 6px;
-}
-.steplist li p {
-  color: var(--ink-2);
-  font-size: 15px;
-  line-height: 1.6;
-  max-width: 60ch;
-}
-@media (max-width: 700px) {
-  .steplist li { grid-template-columns: 1fr; gap: 8px; }
-}
-
-/* ————— definition grid (what you get / what we need) ————— */
-.defgrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  background: var(--rule);
-  border: 1px solid var(--rule);
-  border-radius: 4px;
-  overflow: hidden;
-}
-.defgrid > div {
-  background: var(--paper);
-  padding: 28px 28px 32px;
-}
-.defgrid h4 {
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: 20px;
-  letter-spacing: -0.01em;
-  color: var(--forest);
-  margin-bottom: 10px;
-}
-.defgrid p {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--ink-2);
-}
-@media (max-width: 700px) { .defgrid { grid-template-columns: 1fr; } }
-
-/* ————— faq accordion (reusable) ————— */
-.faq-list { border-top: 1px solid var(--ink); }
-.faq-item { border-bottom: 1px solid var(--rule); transition: background .3s ease; }
-.faq-item.open { background: var(--paper-2); }
-.faq-q {
-  width: 100%;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  padding: 28px 20px 28px 0;
-  text-align: left;
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: clamp(20px, 2.2vw, 26px);
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  transition: color .2s;
-}
-.faq-item.open .faq-q { padding-left: 20px; }
-.faq-q:hover { color: var(--forest); }
-.faq-q .num {
-  font-family: var(--ff-mono);
-  font-size: 11px;
-  letter-spacing: .1em;
-  color: var(--ink-3);
-  margin-right: 24px;
-  min-width: 24px;
-}
-.faq-q .label { flex: 1; }
-.faq-q .icon {
-  width: 16px; height: 16px;
-  position: relative;
-  margin-left: 20px;
-  flex-shrink: 0;
-  transition: transform .4s cubic-bezier(.2,.7,.2,1);
-}
-.faq-q .icon::before, .faq-q .icon::after {
-  content: "";
-  position: absolute;
-  background: var(--ink-2);
-  transition: transform .3s;
-}
-.faq-q .icon::before { width: 16px; height: 1px; top: 50%; left: 0; }
-.faq-q .icon::after { width: 1px; height: 16px; left: 50%; top: 0; }
-.faq-item.open .faq-q .icon { transform: rotate(90deg); }
-.faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
-.faq-a-inner {
-  padding: 0 20px 32px 60px;
-  max-width: 72ch;
-  color: var(--ink-2);
-  font-size: 16px;
-  line-height: 1.65;
-}
-@media (max-width: 600px) { .faq-a-inner { padding-left: 0; } }
-
-/* ————— cta section ————— */
-.cta {
-  background: var(--forest);
-  color: var(--cream);
-  max-width: none;
-  margin: 0;
-  padding: 96px 32px 112px;
-  position: relative;
-  overflow: hidden;
-}
-.cta::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  pointer-events: none;
-  opacity: .8;
-}
-.cta-inner { max-width: var(--max); margin: 0 auto; position: relative; }
-.cta .eyebrow { color: rgba(253, 248, 236, .6); }
-.cta .eyebrow::before { background: rgba(253, 248, 236, .4); }
-.cta h2 {
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: clamp(40px, 6vw, 80px);
-  line-height: 1.02;
-  letter-spacing: -0.025em;
-  margin-bottom: 32px;
-  max-width: 18ch;
-}
-.cta h2 em { font-style: italic; color: var(--mint); }
-.cta p {
-  font-family: var(--ff-display);
-  font-weight: 300;
-  font-size: 20px;
-  line-height: 1.5;
-  color: rgba(253, 248, 236, .85);
-  max-width: 52ch;
-  margin-bottom: 48px;
-}
-.cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  padding: 18px 28px;
-  background: var(--cream);
-  color: var(--forest);
-  font-family: var(--ff-mono);
-  font-size: 12px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  transition: all .2s;
-}
-.cta-btn:hover { background: var(--mint); }
-.cta-btn svg { width: 12px; height: 12px; transition: transform .2s; }
-.cta-btn:hover svg { transform: translateX(3px); }
-.cta-contact {
-  margin-top: 40px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(253, 248, 236, .2);
-  font-family: var(--ff-mono);
-  font-size: 12px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: rgba(253, 248, 236, .7);
-}
-.cta-contact a {
-  color: var(--mint);
-  border-bottom: 1px solid rgba(214, 240, 221, .35);
-  padding-bottom: 2px;
-}
-
-/* ————— footer ————— */
-footer {
-  padding: 64px 32px 40px;
-  border-top: 1px solid var(--rule);
-  background: var(--paper-2);
-  font-size: 13px;
-  color: var(--ink-3);
-}
-.footer-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 48px;
-  margin-bottom: 48px;
-}
-.footer-brand .brand { margin-bottom: 20px; }
-.footer-brand p {
-  max-width: 36ch;
-  line-height: 1.55;
-  color: var(--ink-2);
-  font-size: 13px;
-}
-.footer-col h4 {
-  font-family: var(--ff-mono);
-  font-size: 10px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin-bottom: 16px;
-  font-weight: 500;
-}
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-col a { color: var(--ink-2); transition: color .2s; }
-.footer-col a:hover { color: var(--forest); }
-.footer-colophon {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding-top: 24px;
-  border-top: 1px solid var(--rule);
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-  font-family: var(--ff-mono);
-  font-size: 10px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-.footer-colophon .legal { display: flex; gap: 20px; flex-wrap: wrap; }
-.footer-mark {
-  color: var(--russet);
-  display: inline-block;
-  margin-right: 8px;
-  vertical-align: middle;
-}
-.footer-mark svg { width: 22px; height: 8px; display: block; }
-
-/* reveal animation */
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
-.reveal.in { opacity: 1; transform: translateY(0); }
-
-/* mobile */
-@media (max-width: 900px) {
-  .nav-links { display: none; }
-  .nav-cta { margin-left: auto; }
-}
-@media (max-width: 800px) { .footer-inner { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 500px) { .footer-inner { grid-template-columns: 1fr; } }
-@media (max-width: 700px) {
-  .section-hd { grid-template-columns: 1fr; gap: 20px; }
-}
-
-</style>
-<style>
-.manifesto {
-  text-align: center;
-  max-width: 24ch;
-  margin: 72px auto 96px;
-  font-family: var(--ff-display);
-  font-weight: 300;
-  font-style: italic;
-  font-size: clamp(32px, 5vw, 56px);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--forest);
-}
-.manifesto b { font-weight: 500; font-style: normal; color: var(--ink); }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/site.css" />
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<div class="masthead">
-  <div class="masthead-inner">
-    <div>
-      <span>Robinhood Health</span>
-      <span>About</span>
-    </div>
-    <div>
-      <span>A virtual medical group</span>
-    </div>
-  </div>
-</div>
-
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="brand">
-      <img src="/RH-Logo.png" alt="Robinhood Health" class="brand-mark" />
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/" aria-label="Robinhood Health home">
+      <img src="/assets/rh-logo-256.png" alt="" width="40" height="40" />
       Robinhood Health
     </a>
-    <div class="nav-links">
-      <a href="/howitworks/">How it works</a>
-      <a href="/model/">Model</a>
-      <a href="/partners/">Partners</a>
-      <a href="/platform/">Platform</a>
-      <a href="/about/" class="current">About</a>
-      <a href="/careers/">Careers</a>
+    <nav aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="/#how">How it works</a></li>
+        <li><a href="/#screenings">What we help with</a></li>
+        <li><a href="/#partners">For partners</a></li>
+        <li><a href="/about/" aria-current="page">About</a></li>
+        <li><a href="/careers/">Careers</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary" href="/#contact">Contact us</a>
+    <details class="menu">
+      <summary>Menu</summary>
+      <ul>
+        <li><a href="/#how">How it works</a></li>
+        <li><a href="/#screenings">What we help with</a></li>
+        <li><a href="/#partners">For partners</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/careers/">Careers</a></li>
+        <li><a href="/#contact">Contact us</a></li>
+      </ul>
+    </details>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero split-hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">About us</p>
+        <h1>A doctor’s office for the people healthcare reaches last.</h1>
+        <p class="lede">Robinhood Health is a virtual medical group. We partner with community health centers and states to bring preventive care home to people on Medicaid, especially in rural communities.</p>
+      </div>
+      <img src="/assets/patient-phone.jpg" alt="A smiling woman reading a text message on her phone" width="900" height="649" />
     </div>
-    <a href="/#cta" class="nav-cta">Request briefing →</a>
-  </div>
-</nav>
+  </section>
 
-<main>
-
-<section class="hero">
-  <div class="eyebrow">About Robinhood Health</div>
-  <h1 class="reveal">A virtual medical group for the members <em>traditional delivery reaches last.</em></h1>
-</section>
-
-<div class="manifesto">
-  <b>The appointment</b> should come to the home.<br>
-  <b>The language</b> should meet the member where they are.<br>
-  <b>The result</b> should be documented cleanly to the measure.
-</div>
-
-<section id="thesis">
-  <div class="section-hd" data-num="01">
-    <div class="section-num"><b>01</b>The thesis</div>
-    <div>
-      <h2>Care gaps are <em>a distribution problem.</em></h2>
-      <p class="section-lede">Before they are a motivation problem, a technology problem, a funding problem, or a clinical knowledge problem, care gaps are a problem of distribution. The members who need preventive care most are the members for whom the traditional delivery system works least well.</p>
+  <section class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What we believe</p>
+        <h2>Care should fit people’s lives.</h2>
+      </div>
+      <div class="built-grid">
+        <div class="built">
+          <h3>The appointment should come to the home.</h3>
+          <p>No day off, no ride, no waiting room. A simple test in the mail.</p>
+        </div>
+        <div class="built">
+          <h3>The conversation should meet people where they are.</h3>
+          <p>Plain language, by text, in English or Spanish.</p>
+        </div>
+        <div class="built">
+          <h3>The result should go back to the patient’s health center.</h3>
+          <p>We work alongside local care teams, never around them.</p>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="prose">
-    <p class="lead">Transportation, time, trust, language, and fragmentation compound into a single outcome. A closed loop that never closes.</p>
-
-    <p>Federally Qualified Health Centers serve 32 million patients, most of them Medicaid-eligible, most of them from communities with elevated clinical risk. Screening rates at these sites persistently trail national benchmarks by fifteen to twenty percentage points. This is not because the care teams are unmotivated. It is because closing a screening gap requires reaching a member between visits, in their preferred language, at the right cadence, with a modality they will actually use.</p>
-
-    <p>That work takes operational capacity that front-line clinical teams do not have.</p>
-
-    <p>Robinhood Health was built to contribute that capacity. We are a virtual medical group that partners with FQHCs and Medicaid managed care plans as a contracted clinical service. Our physicians become the ordering providers of record. Our nurses close the loop on abnormal results. Our infrastructure handles identification, outreach, testing, and reporting&mdash;so the front-line team can focus on the care only they can deliver.</p>
-
-    <blockquote>The barrier is almost never the patient. It is the system's ability to meet them where they are.</blockquote>
-
-    <p>Everything downstream of that thesis&mdash;our care model, our infrastructure, our partner relationships&mdash;is an attempt to honor it.</p>
-  </div>
-</section>
-
-<div class="ornament" aria-hidden="true">
-  <svg viewBox="0 0 80 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="2" cy="7" r="1.5" fill="currentColor"/>
-    <line x1="6" y1="7" x2="70" y2="7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-    <polyline points="62,3 72,7 62,11" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-</div>
-
-<section id="work">
-  <div class="section-hd" data-num="02">
-    <div class="section-num"><b>02</b>The work</div>
-    <div>
-      <h2>A clinical service, <em>not a platform.</em></h2>
-      <p class="section-lede">We are not a technology vendor. We are not a member engagement tool. We are not a software product. We are a clinical group that contracts with safety-net providers and Medicaid plans to deliver a specific set of preventive services to a specific kind of patient population.</p>
+  <section>
+    <div class="wrap split">
+      <div class="story">
+        <p class="eyebrow">Why we started</p>
+        <h2 style="margin-bottom:22px">Better software wasn’t enough.</h2>
+        <p>Before Robinhood Health, our founding team built clinical decision support software for doctors’ offices. It was used at more than 180 care sites and was acquired in 2021.</p>
+        <p>It also taught us something. Health centers serving people on Medicaid didn’t need another tool. They needed more hands to reach patients between visits.</p>
+        <p>So we became the doctor’s office. <b>We built the technology and the clinical team together</b>, so a small group of doctors and nurses can reach a lot of patients.</p>
+      </div>
+      <div>
+        <p class="pull">“The barrier is almost never the patient. It’s the system’s ability to meet them where they are.”</p>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="prose">
-    <p>The work is narrow by design. For 2026 we focus on three measures: colorectal cancer screening, hemoglobin A1c control, and kidney health evaluation. Each is a recognized HEDIS measure and a tracked UDS metric. Each addresses a condition that is disproportionately undetected in Medicaid populations, disproportionately costly when undetected, and disproportionately preventable with timely screening.</p>
-
-    <p>We deliver the work end to end. Our technology identifies eligible members from their clinical history. Our AI-powered nursing assistant engages them bilingually over SMS. Our licensed physicians sign every order. CLIA-certified kits ship to the home. Our nurses coordinate diagnostic follow-up for abnormal results. The completed record documents back to the partner's system for measure credit.</p>
-
-    <p>We built the infrastructure to make this work possible&mdash;Sherwood as the clinical system of record, Mariann as the patient engagement layer&mdash;but the infrastructure is not what we sell. It is how we do our job. What we sell is the job done.</p>
-  </div>
-</section>
-
-<div class="ornament quiet" aria-hidden="true">
-  <svg viewBox="0 0 80 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="2" cy="7" r="1.5" fill="currentColor"/>
-    <line x1="6" y1="7" x2="70" y2="7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-    <polyline points="62,3 72,7 62,11" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-</div>
-
-<section id="history">
-  <div class="section-hd" data-num="03">
-    <div class="section-num"><b>03</b>How we got here</div>
-    <div>
-      <h2>A lesson <em>from the last company.</em></h2>
-      <p class="section-lede">Robinhood Health is a second act. The lesson from the first is the reason the second exists.</p>
+  <section class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What we do</p>
+        <h2>Doctors and technology under one roof.</h2>
+        <p>Today we focus on three screenings: colon cancer, diabetes, and kidney health. Our physicians order every test, our nurses handle every follow-up, and two tools we built ourselves do the busywork.</p>
+      </div>
+      <div class="built-grid">
+        <div class="built lead">
+          <p class="kicker">People</p>
+          <h3>Our clinical team</h3>
+          <p>Licensed physicians and population health nurses who are always in charge of care.</p>
+        </div>
+        <div class="built">
+          <p class="kicker">Sherwood</p>
+          <h3>Our clinical system</h3>
+          <p>Finds who’s due, tracks every kit, and sends results back to the health center.</p>
+        </div>
+        <div class="built">
+          <p class="kicker">Mariann</p>
+          <h3>Our nurses’ AI assistant</h3>
+          <p>Texts patients in plain language and hands off to a nurse when it matters.</p>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="prose">
-    <p>Before Robinhood Health, the founding team built a clinical decision support platform for medical groups and health systems. It scaled to one hundred and eighty care sites, integrated with every major EHR, and closed a successful exit in 2021.</p>
-
-    <p>It also revealed something uncomfortable. No matter how good the decision support got, the outcomes it produced were bounded by whether the doctors received it well, used it consistently, and had the operational capacity to act on it. For well-resourced health systems, those conditions mostly held. For the safety-net clinics and Medicaid-focused medical groups, they often did not.</p>
-
-    <p>The reasonable conclusion, after several years of watching that ceiling from below, was that the highest-leverage move for the populations who most need preventive care is not to give their doctors better software. It is to become the doctor, and become the technology, at the same time. To own both halves of the problem.</p>
-
-    <p>Robinhood Health is what that conclusion looks like when it is executed.</p>
-  </div>
-</section>
-
-<section id="future">
-  <div class="section-hd" data-num="04">
-    <div class="section-num"><b>04</b>What is next</div>
-    <div>
-      <h2>From foundation <em>to whole-person care.</em></h2>
-      <p class="section-lede">Three screenings is a wedge, not an endpoint. The same infrastructure, the same clinical team, and the same partner relationships extend naturally into adjacent preventive services that Medicaid populations are systematically underserved on.</p>
+  <section class="cta" id="contact">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <h2>Get in touch.</h2>
+          <p>Want to work with us, or just learn more? We’d love to hear from you.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-light" href="mailto:info@robinhoodhealth.co">info@robinhoodhealth.co</a>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="prose">
-    <p>For 2026, the program stays focused on colorectal, diabetes, and kidney screening. Doing these three well, at scale, with closed-loop follow-up, is the work.</p>
-
-    <p>For 2027, the roadmap extends to cervical cancer screening, adult immunization support, medication therapy management, and same-day virtual urgent care. Each of these is a recognized quality measure, each is deliverable through the infrastructure we have already built, and each is a service that Medicaid populations use at rates dramatically below the commercial benchmark.</p>
-
-    <p>The longer horizon is a whole-person preventive care service for Medicaid-eligible adults, delivered entirely by a contracted clinical team, documented entirely to the measures that matter to our partners, and economically structured to make it possible for a Medicaid plan or an FQHC to buy what they could not otherwise afford to build.</p>
-
-    <p>That is the company.</p>
-  </div>
-</section>
-
-<div class="ornament" aria-hidden="true">
-  <svg viewBox="0 0 80 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="2" cy="7" r="1.5" fill="currentColor"/>
-    <line x1="6" y1="7" x2="70" y2="7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-    <polyline points="62,3 72,7 62,11" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-</div>
-
-<section class="cta" id="cta">
-  <div class="cta-inner">
-    <div class="eyebrow">05 / Get in touch</div>
-    <h2>The rest <em>is a conversation.</em></h2>
-    <p>If what we do matches something you are trying to accomplish&mdash;as an FQHC, as a Medicaid plan, as a collaborator&mdash;write us. We answer.</p>
-    <a href="mailto:info@robinhoodhealth.co?subject=Hello" class="cta-btn">
-      Get in touch
-      <svg viewBox="0 0 12 12" fill="none"><path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.3"/></svg>
-    </a>
-    <div class="cta-contact">
-      or write to <a href="mailto:info@robinhoodhealth.co">info@robinhoodhealth.co</a>
-    </div>
-  </div>
-</section>
-
+  </section>
 </main>
 
 <footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a href="/" class="brand">
-        <img src="/RH-Logo.png" alt="Robinhood Health" class="brand-mark" />
-        Robinhood Health
-      </a>
-      <p>A virtual medical group closing preventive screening gaps for high-risk Medicaid populations. RH Health Inc., dba Robinhood Health.</p>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="/"><img src="/assets/rh-logo-256.png" alt="" width="40" height="40" />Robinhood Health</a>
+        <p>Health screenings from home, in partnership with your community health center.</p>
+      </div>
+      <div>
+        <h4>Care</h4>
+        <ul>
+          <li><a href="/#screenings">What we help with</a></li>
+          <li><a href="/#how">How it works</a></li>
+          <li><a href="/#patients">Questions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Work with us</h4>
+        <ul>
+          <li><a href="/fqhc/">For health centers</a></li>
+          <li><a href="/mco/">For Medicaid plans</a></li>
+          <li><a href="/#contact">Contact us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/careers/">Careers</a></li>
+          <li><a href="/letters/">Founder’s letters</a></li>
+          <li><a href="/story/">Robinhood Tales</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>Program</h4>
-      <ul>
-        <li><a href="/howitworks/">How it works</a></li>
-        <li><a href="/model/">The model</a></li>
-        <li><a href="/platform/">Platform</a></li>
-        <li><a href="/#roadmap">Roadmap</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Partners</h4>
-      <ul>
-        <li><a href="/partners/">Overview</a></li>
-        <li><a href="/fqhc/">For FQHCs</a></li>
-        <li><a href="/mco/">For Medicaid plans</a></li>
-        <li><a href="/#cta">Request briefing</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/careers/">Careers</a></li>
-        <li><a href="https://www.robinhoodhealth.co/story/">Robinhood Tales</a></li>
-        <li><a href="/letters/">Founder's letters</a></li>
-        <li><a href="mailto:info@robinhoodhealth.co">Contact</a></li>
-      </ul>
-    </div>
-  
-  </div>
-  <div class="footer-colophon">
-    <div><span class="footer-mark"><svg viewBox="0 0 22 8" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="4" x2="18" y2="4" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><polyline points="14,1 20,4 14,7" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></span>© 2026 RH Health Inc., dba Robinhood Health</div>
+    <p class="disclaimer">Not for emergencies: if you are having a medical emergency, call 911. If you are in crisis, call or text 988. Care is provided by licensed clinicians of Robinhood Health.</p>
     <div class="legal">
-      <a href="/privacy/">Privacy</a>
-      <a href="/terms/">Terms</a>
-      <a href="/hipaa/">HIPAA notice</a>
-      <a href="/accessibility/">Accessibility</a>
+      <span>© 2026 RH Health Inc., dba Robinhood Health · Los Angeles, CA</span>
+      <nav aria-label="Legal">
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/hipaa/">HIPAA notice</a>
+        <a href="/accessibility/">Accessibility</a>
+      </nav>
     </div>
   </div>
 </footer>
-
-<script>
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-  });
-}, { rootMargin: '0px 0px -80px 0px' });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-</script>
-
 </body>
 </html>
