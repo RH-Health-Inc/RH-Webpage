@@ -12,10 +12,10 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-<title>Robinhood Health — A technology-enabled doctor’s office focused on Medicaid</title>
-<meta name="description" content="Robinhood Health brings the doctor’s office to the patient. We mail a simple test home, our doctors and nurses read the results, and we manage follow-up by text, for colon cancer, diabetes, and kidney disease." />
+<title>Robinhood Health — A Virtual Medical Group</title>
+<meta name="description" content="Robinhood Health is a virtual medical group that partners with community health centers, state health departments, and Medicaid plans to close preventive screening gaps at home, for colon cancer, diabetes, and kidney disease." />
 <meta property="og:title" content="Robinhood Health" />
-<meta property="og:description" content="A technology-enabled doctor’s office focused on Medicaid. We bring the office to the patient." />
+<meta property="og:description" content="A virtual medical group closing preventive screening gaps for Medicaid patients." />
 <meta property="og:image" content="https://www.robinhoodhealth.co/assets/rh-logo-256.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -94,6 +94,36 @@ section{padding:96px 0}
 .conditions small{font-weight:700;color:var(--muted);font-size:15px;margin-right:4px}
 .chip{background:var(--mist);color:var(--forest);font-weight:800;font-size:14px;padding:7px 14px;border-radius:999px}
 
+/* gap bars */
+.gap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.gap{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px}
+.gap h3{font-size:20px}
+.measure{font-size:13px;font-weight:800;color:var(--rust);letter-spacing:.06em;margin:6px 0 20px}
+.bar{display:grid;grid-template-columns:92px 1fr 44px;align-items:center;gap:10px;margin-bottom:12px;font-size:15px}
+.bar span{color:var(--muted);font-weight:700}
+.bar i{display:block;height:14px;border-radius:999px;background:linear-gradient(90deg,var(--mint) var(--w),var(--sand) var(--w))}
+.bar.sn i{background:linear-gradient(90deg,var(--rust) var(--w),var(--sand) var(--w))}
+.bar b{color:var(--forest);text-align:right}
+.bar.sn b{color:var(--rust)}
+.takeaway{margin-top:40px;background:var(--forest);color:var(--mist);border-radius:var(--r);padding:36px 40px}
+.takeaway .eyebrow{color:var(--mint)}
+.takeaway .big{margin-top:0;font-size:clamp(24px,3vw,32px);font-weight:800;color:var(--cream);line-height:1.2;margin-bottom:10px}
+.steps.five{grid-template-columns:repeat(5,1fr);gap:16px}
+.steps.five .step{padding:24px}
+.steps.five h3{font-size:19px}
+.steps.five p{font-size:15.5px}
+.platform-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.specs{margin-top:22px;display:grid;gap:8px;border-top:1px solid rgba(30,59,44,.15);padding-top:18px}
+.specs div{display:flex;justify-content:space-between;gap:16px;font-size:15px}
+.specs dt{color:var(--muted);font-weight:700}
+.specs dd{color:var(--forest);font-weight:800;text-align:right}
+.faq-plain{background:var(--cream)}
+.faq-plain + .cta{padding-top:0}
+/* hero photo */
+.hero-photo{position:relative;margin:0 0 0 auto;max-width:460px}
+.hero-photo img{width:100%;height:auto;aspect-ratio:900/900;object-fit:cover;object-position:50% 20%;border-radius:28px;box-shadow:0 24px 60px rgba(30,59,44,.18)}
+.hero-photo .float{position:absolute;left:-28px;bottom:36px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 18px;font-weight:800;color:var(--forest);font-size:15.5px;box-shadow:0 12px 30px rgba(30,59,44,.15);display:flex;gap:10px;align-items:center;max-width:290px}
+.hero-photo .float span{flex:0 0 28px;height:28px;border-radius:50%;background:var(--mist);display:grid;place-items:center}
 /* phone card */
 .phone{background:var(--card);border:1px solid var(--line);border-radius:32px;padding:26px 22px;box-shadow:0 24px 60px rgba(30,59,44,.12);max-width:400px;margin-left:auto}
 .phone-top{display:flex;align-items:center;gap:10px;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:18px}
@@ -107,7 +137,7 @@ section{padding:96px 0}
 .stamp{font-size:12px;color:var(--muted);text-align:center;margin:6px 0 12px}
 
 /* problem */
-.problem{background:var(--sand)}
+.problem,.faq{background:var(--sand)}
 .problem-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:64px;align-items:center}
 .journey{list-style:none;margin-top:28px;display:grid;gap:14px}
 .journey li{display:flex;gap:14px;align-items:flex-start;font-size:18px}
@@ -212,8 +242,9 @@ footer{border-top:1px solid var(--line);padding:64px 0 40px;font-size:16px}
   .nav-links,.nav .btn{display:none}
   .menu{display:block}
   .hero-grid,.problem-grid,.faq-grid{grid-template-columns:1fr;gap:44px}
-  .phone{margin:0 auto}
-  .steps,.aud-grid,.built-grid{grid-template-columns:1fr}
+  .hero-photo{margin:0 auto}
+  .hero-photo .float{left:12px}
+  .steps,.aud-grid,.built-grid,.gap-grid,.platform-grid,.steps.five{grid-template-columns:1fr}
   .team-grid{grid-template-columns:repeat(2,1fr)}
   .foot-grid{grid-template-columns:1fr 1fr}
 }
@@ -241,8 +272,9 @@ footer{border-top:1px solid var(--line);padding:64px 0 40px;font-size:16px}
     <nav aria-label="Main">
       <ul class="nav-links">
         <li><a href="#how">How it works</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#platform">Care model</a></li>
         <li><a href="#patients">For patients</a></li>
-        <li><a href="#partners">For partners</a></li>
         <li><a href="/about/">About</a></li>
         <li><a href="/careers/">Careers</a></li>
       </ul>
@@ -252,8 +284,9 @@ footer{border-top:1px solid var(--line);padding:64px 0 40px;font-size:16px}
       <summary>Menu</summary>
       <ul>
         <li><a href="#how">How it works</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#platform">Care model</a></li>
         <li><a href="#patients">For patients</a></li>
-        <li><a href="#partners">For partners</a></li>
         <li><a href="/about/">About</a></li>
         <li><a href="/careers/">Careers</a></li>
         <li><a href="#contact">Partner with us</a></li>
@@ -268,12 +301,12 @@ footer{border-top:1px solid var(--line);padding:64px 0 40px;font-size:16px}
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">A doctor’s office for Medicaid</p>
-        <h1>We bring the doctor’s office <span>to you.</span></h1>
-        <p class="lede">Robinhood Health is a technology-enabled doctor’s office focused on Medicaid. We mail a simple test to your home, our doctors and nurses read the results, and we handle the follow-up by text.</p>
+        <p class="eyebrow">A virtual medical group for Medicaid</p>
+        <h1>Preventive care that <span>comes home.</span></h1>
+        <p class="lede">Robinhood Health partners with community health centers and states to bring cancer, diabetes, and kidney screening to Medicaid patients at home, starting in rural America. Our doctors and nurses handle everything, from the test kit to the follow-up.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="#patients">I got a text or kit</a>
-          <a class="btn btn-ghost" href="#partners">I’m a health center or state</a>
+          <a class="btn btn-primary" href="#contact">Partner with us</a>
+          <a class="btn btn-ghost" href="#patients">Got a text from us?</a>
         </div>
         <div class="conditions">
           <small>Today we screen for</small>
@@ -282,38 +315,47 @@ footer{border-top:1px solid var(--line);padding:64px 0 40px;font-size:16px}
           <span class="chip">Kidney disease</span>
         </div>
       </div>
-
-      <div class="phone" aria-label="Example text message conversation with Robinhood Health">
-        <div class="phone-top">
-          <img src="/assets/rh-logo-256.png" alt="" width="34" height="34" />
-          <div><b>Robinhood Health</b><span>On behalf of your health center</span></div>
-        </div>
-        <div class="bubble in">Hi Maria, it’s time for your colon cancer screening. We’re mailing you a simple at-home test. Reply YES to confirm your address.</div>
-        <div class="bubble out">YES</div>
-        <div class="stamp">8 days later</div>
-        <div class="bubble in">We got your test back. A nurse on our team reviewed your result.</div>
-        <div class="bubble in result">✓ Your result is normal. See you next year!</div>
-      </div>
+      <figure class="hero-photo">
+        <img src="/assets/hero.jpg" alt="A mother and her young daughter smiling at a phone at their kitchen table" width="900" height="1042" fetchpriority="high" />
+        <figcaption class="float"><span>✓</span> Your result is normal. See you next year!</figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- PROBLEM -->
-  <section class="problem">
-    <div class="wrap problem-grid">
-      <div>
+  <!-- WHY -->
+  <section class="problem" id="why">
+    <div class="wrap">
+      <div class="section-head">
         <p class="eyebrow">Why we exist</p>
-        <h2>For someone on Medicaid, healthcare is anything but simple.</h2>
-        <p class="lede" style="margin-top:18px">Take colon cancer screening, something everyone over 45 needs.</p>
-        <ul class="journey">
-          <li>Find a clinic with an opening for a colonoscopy.</li>
-          <li>Take an unpaid day off from an hourly job.</li>
-          <li>Find a friend to drive you there and back.</li>
-          <li>So it never gets done.</li>
-        </ul>
+        <h2>Care gaps aren’t a motivation problem. They’re a distribution problem.</h2>
+        <p>Getting screened usually means finding an open appointment, taking an unpaid day off, and finding a ride. For people on Medicaid, especially in rural communities, it often never happens. The result is a gap that shows up in every measure, every year.</p>
       </div>
-      <div class="stats">
-        <div class="stat"><b>9 in 10</b><span>people survive colon cancer when it’s caught early</span></div>
-        <div class="stat late"><b>&lt; 2 in 10</b><span>survive when it’s caught late</span></div>
+      <div class="gap-grid">
+        <div class="gap">
+          <h3>Colorectal cancer screening</h3>
+          <p class="measure">Share of eligible patients screened</p>
+          <div class="bar"><span>Commercial</span><i style="--w:56%"></i><b>56%</b></div>
+          <div class="bar"><span>Medicaid</span><i style="--w:39%"></i><b>39%</b></div>
+          <div class="bar sn"><span>Safety-net</span><i style="--w:43%"></i><b>43%</b></div>
+        </div>
+        <div class="gap">
+          <h3>Diabetes control</h3>
+          <p class="measure">Share with HbA1c under 8%</p>
+          <div class="bar"><span>Commercial</span><i style="--w:71%"></i><b>71%</b></div>
+          <div class="bar"><span>Medicaid</span><i style="--w:52%"></i><b>52%</b></div>
+          <div class="bar sn"><span>Safety-net</span><i style="--w:45%"></i><b>45%</b></div>
+        </div>
+        <div class="gap">
+          <h3>Kidney health evaluation</h3>
+          <p class="measure">Share of patients with diabetes evaluated</p>
+          <div class="bar"><span>Commercial</span><i style="--w:38%"></i><b>38%</b></div>
+          <div class="bar"><span>Medicaid</span><i style="--w:29%"></i><b>29%</b></div>
+          <div class="bar sn"><span>Safety-net</span><i style="--w:25%"></i><b>25%</b></div>
+        </div>
+      </div>
+      <div class="takeaway">
+        <p class="big">Colon cancer caught early: 9 in 10 people survive. Caught late: fewer than 2 in 10.</p>
+        <p>That’s why we bring the screening to the patient, instead of waiting for the patient to find the screening.</p>
       </div>
     </div>
   </section>
@@ -323,157 +365,110 @@ footer{border-top:1px solid var(--line);padding:64px 0 40px;font-size:16px}
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">How it works</p>
-        <h2>We bring the office to the patient.</h2>
+        <h2>We bring the doctor’s office to the patient.</h2>
+        <p>Our partners send us a list of patients who are due. We take it from there and close the loop.</p>
       </div>
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
-          <h3>A simple test mailed to your home</h3>
-          <p>No appointment, no day off, no ride. Easy instructions in English and Spanish.</p>
+          <h3>A simple test, mailed home</h3>
+          <p>We reach out by text on behalf of the patient’s health center and mail an easy at-home test. No appointment, no day off, no ride.</p>
         </div>
         <div class="step">
           <div class="step-num">2</div>
           <h3>Our doctors and nurses read the results</h3>
-          <p>Every test is ordered by a licensed doctor and every result is reviewed by our clinical team.</p>
+          <p>A licensed physician orders every test and our clinical team reviews every result.</p>
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <h3>We manage the follow-up by text</h3>
-          <p>Reminders, results, and next steps by text message. If you need more care, we help you get there.</p>
+          <h3>We manage the follow-up</h3>
+          <p>Patients get results and next steps by text. If they need more care, our nurses help them get there, and the results go back to their health center.</p>
         </div>
       </div>
-      <div class="same">The same at-home model for <span class="chip">Colon cancer</span><span class="chip">Diabetes</span><span class="chip">Kidney disease</span></div>
     </div>
   </section>
 
-  <!-- AUDIENCES -->
+  <!-- PARTNERS -->
   <section class="audiences" id="partners">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Who we work with</p>
-        <h2>One care team for patients, health centers, and states.</h2>
-        <p>We’re a doctor’s office, not a software company. We become a contracted provider with your community health center and run the whole process in house.</p>
+        <h2>Built in partnership with the people already caring for these communities.</h2>
+        <p>We don’t replace the local health center. We become a contracted provider alongside it, adding the clinical capacity to reach patients between visits.</p>
       </div>
       <div class="aud-grid">
+        <div class="aud">
+          <p class="tag">Community health centers</p>
+          <h3>Close screening gaps without adding staff.</h3>
+          <ul>
+            <li>Send us a patient list; our physicians order and our nurses follow up</li>
+            <li>Results flow back for UDS and HEDIS credit</li>
+            <li>No EHR integration project</li>
+            <li>Patients stay connected to their medical home</li>
+          </ul>
+          <a class="more" href="/fqhc/">For health centers →</a>
+        </div>
+        <div class="aud">
+          <p class="tag">State health departments</p>
+          <h3>A ready-to-run program for rural health.</h3>
+          <ul>
+            <li>We recruit and support health centers across the state</li>
+            <li>Paid when screenings get done</li>
+            <li>Clear reporting on reach, completion, and follow-up</li>
+            <li>Built for rural and hard-to-reach patients</li>
+          </ul>
+          <a class="more" href="#contact">Talk to our team →</a>
+        </div>
         <div class="aud">
           <p class="tag">Patients</p>
           <h3>Care that fits your life.</h3>
           <ul>
             <li>Screening from your kitchen table</li>
             <li>Real doctors and nurses on your results</li>
-            <li>We stay connected to your health center</li>
+            <li>Help in English and Spanish</li>
           </ul>
           <a class="more" href="#patients">Questions about your test →</a>
-        </div>
-        <div class="aud">
-          <p class="tag">Community health centers</p>
-          <h3>Close screening gaps without adding staff.</h3>
-          <ul>
-            <li>You send a patient list; we do the rest</li>
-            <li>Results flow back for UDS and HEDIS credit</li>
-            <li>No EHR integration project</li>
-          </ul>
-          <a class="more" href="/fqhc/">For health centers →</a>
-        </div>
-        <div class="aud">
-          <p class="tag">State health departments</p>
-          <h3>A ready-to-run rural health program.</h3>
-          <ul>
-            <li>Flat fee per program, plus milestone payments when screenings get done</li>
-            <li>We recruit and support local health centers</li>
-            <li>Outcomes reporting your team can use</li>
-          </ul>
-          <a class="more" href="#contact">Talk to our team →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- HOW WE'RE BUILT -->
-  <section>
+  <!-- CARE MODEL -->
+  <section id="platform">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Our care team</p>
+        <p class="eyebrow">Our care model</p>
         <h2>Doctors and technology under one roof.</h2>
-        <p>Our clinical team works inside our partner health centers, supported by two systems we built ourselves.</p>
+        <p>We’re a doctor’s office, not a software company. We run the whole process in house, with tools we built to do the busywork so our clinicians can focus on patients.</p>
       </div>
       <div class="built-grid">
         <div class="built lead">
           <p class="kicker">People</p>
-          <h3>Robinhood clinical care team</h3>
-          <p>Licensed doctors and population health nurses who order every test, read every result, and own the follow-up.</p>
+          <h3>Our clinical care team</h3>
+          <p>Licensed physicians and population health nurses who order every test, review every result, and own every follow-up. They are always in charge.</p>
         </div>
         <div class="built">
           <p class="kicker">Sherwood</p>
           <h3>Our in-house clinical system</h3>
-          <p>Finds who’s overdue, orders and tracks the tests, and sends results back to the health center.</p>
+          <p>Finds who’s overdue, routes orders for physician sign-off, tracks every kit, and sends results back to the health center.</p>
         </div>
         <div class="built">
           <p class="kicker">Mariann</p>
           <h3>AI assistant to our nurses</h3>
-          <p>Handles reminders and texting with patients in English and Spanish, and hands off to a nurse when it matters.</p>
+          <p>Texts patients in English and Spanish, answers questions in plain language, and hands off to a nurse when it matters. She never diagnoses or prescribes.</p>
         </div>
       </div>
-      <p class="note">Technology handles the busywork. Our clinical team is always in charge.</p>
-    </div>
-  </section>
-
-  <!-- STATES -->
-  <section class="states" aria-label="Where we work">
-    <div class="wrap states-inner">
-      <div>
-        <p class="eyebrow">Where we work</p>
-        <h2 style="font-size:clamp(26px,3vw,34px)">Rolling out with four states.</h2>
-      </div>
-      <div class="state-list">
-        <span class="state">Connecticut</span>
-        <span class="state">New Jersey</span>
-        <span class="state">Tennessee</span>
-        <span class="state">South Carolina</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ROADMAP -->
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Roadmap</p>
-        <h2>One process today. More every year.</h2>
-        <p>Same team, same technology, same health centers.</p>
-      </div>
-      <div class="road">
+      <div class="road" style="margin-top:22px">
         <div class="road-col now">
-          <div class="yr"><b>2026</b><span>Today</span></div>
-          <ul><li>Colorectal cancer</li><li>Diabetes</li><li>Kidney health</li></ul>
+          <div class="yr"><b>Today</b><span>2026</span></div>
+          <ul><li>Colorectal cancer screening</li><li>Diabetes monitoring</li><li>Kidney health</li></ul>
         </div>
         <div class="road-col">
-          <div class="yr"><b>2027</b><span>Next</span></div>
-          <ul><li>Cervical cancer</li><li>Immunizations</li><li>Medication management</li><li>Virtual urgent care</li></ul>
+          <div class="yr"><b>Next</b><span>2027</span></div>
+          <ul><li>Cervical cancer screening</li><li>Immunizations</li><li>Medication management</li><li>Virtual urgent care</li></ul>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- TEAM -->
-  <section style="padding-top:0">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Team</p>
-        <h2>A team that has done this before.</h2>
-        <p>Half our team are clinicians.</p>
-      </div>
-      <div class="team-grid">
-        <div class="person"><div class="avatar">NW</div><b>Noah Weiner</b><span>CEO and Founder</span></div>
-        <div class="person"><div class="avatar">NS</div><b>Naman Shah, MD</b><span>Medical Director</span></div>
-        <div class="person"><div class="avatar">TR</div><b>TJ Robak, MD</b><span>Founding Physician</span></div>
-        <div class="person"><div class="avatar">EC</div><b>Emily Chukwu, MPH</b><span>Head of Health Center Programs</span></div>
-        <div class="person"><div class="avatar">DD</div><b>Darcy Donahue, BSN</b><span>Population Health Nurse</span></div>
-        <div class="person"><div class="avatar">MQ</div><b>Mikhail Qader</b><span>Founding Engineer</span></div>
-        <div class="person"><div class="avatar">PS</div><b>Pete Salisbury</b><span>Head of Finance</span></div>
-        <div class="person"><div class="avatar">JM</div><b>James Mason</b><span>Advisor</span></div>
-      </div>
-      <p class="team-foot">Want to help make Medicaid simple? <a href="/careers/">See open roles →</a></p>
+      <p class="note">One process today. More every year. Same team, same technology, same health centers.</p>
     </div>
   </section>
 
@@ -488,7 +483,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 40px;font-size:16px}
       <div>
         <details class="q" open>
           <summary>Who is Robinhood Health?</summary>
-          <p>We’re a doctor’s office that partners with your community health center. Our doctors and nurses help you get the screenings you’re due for, from home.</p>
+          <p>We’re a virtual medical group that partners with your community health center. Our doctors and nurses help you get the screenings you’re due for, from home.</p>
         </details>
         <details class="q">
           <summary>Is the text message really from you?</summary>
@@ -511,13 +506,41 @@ footer{border-top:1px solid var(--line);padding:64px 0 40px;font-size:16px}
     </div>
   </section>
 
+  <!-- PARTNER FAQ -->
+  <section class="faq-plain" id="faq">
+    <div class="wrap faq-grid">
+      <div>
+        <p class="eyebrow">For partners</p>
+        <h2>Questions we hear most often.</h2>
+      </div>
+      <div>
+        <details class="q" open>
+          <summary>Do we need to integrate with your systems?</summary>
+          <p>No. We pull clinical history through the Carequality and Commonwell national networks and send results back to your EHR. Your only lift is sending us a patient list and receiving results.</p>
+        </details>
+        <details class="q">
+          <summary>Who is the provider of record?</summary>
+          <p>Robinhood Health. Our physicians sign each order, and our nurses manage each abnormal result. This is a contracted care service, not a software tool.</p>
+        </details>
+        <details class="q">
+          <summary>How fast can we start?</summary>
+          <p>Paperwork and BAA in week one, first patient outreach in weeks two through four. Most partners are live within 45 days.</p>
+        </details>
+        <details class="q">
+          <summary>How is patient data protected?</summary>
+          <p>We are fully HIPAA compliant, with a BAA in place with every partner. Data is encrypted in transit and at rest, access is role-based, and every action is logged.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta" id="contact">
     <div class="wrap">
       <div class="cta-box">
         <div>
-          <h2>Join us in making Medicaid simple.</h2>
-          <p>Health centers, state health departments, and health plans: let’s talk about your patients.</p>
+          <h2>Let’s make Medicaid simple, together.</h2>
+          <p>Health centers, state health departments, and health plans: tell us about your patients, and we’ll show you how a partnership works.</p>
         </div>
         <div class="cta-actions">
           <a class="btn btn-light" href="mailto:info@robinhoodhealth.co?subject=Partnering%20with%20Robinhood%20Health">Partner with us</a>
@@ -533,14 +556,15 @@ footer{border-top:1px solid var(--line);padding:64px 0 40px;font-size:16px}
     <div class="foot-grid">
       <div>
         <a class="brand" href="/"><img src="/assets/rh-logo-256.png" alt="" width="40" height="40" />Robinhood Health</a>
-        <p>A technology-enabled doctor’s office focused on Medicaid.</p>
+        <p>A virtual medical group closing preventive screening gaps for Medicaid patients.</p>
       </div>
       <div>
         <h4>Care</h4>
         <ul>
           <li><a href="#how">How it works</a></li>
           <li><a href="#patients">For patients</a></li>
-          <li><a href="/platform/">Platform</a></li>
+          <li><a href="#platform">Care model</a></li>
+          <li><a href="#faq">Partner questions</a></li>
         </ul>
       </div>
       <div>
