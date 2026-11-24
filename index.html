@@ -13,9 +13,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 <title>Robinhood Health — A Virtual Medical Group</title>
-<meta name="description" content="Robinhood Health is a virtual medical group that partners with community health centers, state health departments, and Medicaid plans to close preventive screening gaps at home, for colon cancer, diabetes, and kidney disease." />
+<meta name="description" content="Robinhood Health is a medical practice that works with community health centers to offer colon cancer, diabetes, and kidney screenings from home." />
 <meta property="og:title" content="Robinhood Health" />
-<meta property="og:description" content="A virtual medical group closing preventive screening gaps for Medicaid patients." />
+<meta property="og:description" content="Simple health screenings at home, from doctors and nurses who work with your community health center." />
 <meta property="og:image" content="https://www.robinhoodhealth.co/assets/rh-logo-256.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -119,6 +119,24 @@ section{padding:96px 0}
 .specs dd{color:var(--forest);font-weight:800;text-align:right}
 .faq-plain{background:var(--cream)}
 .faq-plain + .cta{padding-top:0}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.about-grid p{color:var(--muted);font-size:19px;margin-bottom:16px}
+.aud h3{margin-top:0}
+.more-dark{font-weight:800;color:var(--forest);text-decoration:none;border-bottom:2px solid var(--rust);padding-bottom:2px}
+.aud-grid.two{grid-template-columns:1fr 1fr}
+.aud-p{color:var(--mist);margin:14px 0 26px;font-size:17px}
+.built h3{margin-top:0}
+/* splits (Cityblock-style text + photo) */
+.tight{padding:0 0 96px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.split-photo{margin:0}
+.split-photo img{width:100%;height:auto;border-radius:28px;object-fit:cover;max-height:520px}
+.split-p{color:var(--muted);font-size:20px;margin:18px 0 28px;max-width:520px}
+.simple-steps{list-style:none;counter-reset:s;margin-top:28px;display:grid;gap:18px}
+.simple-steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;font-size:19px;color:var(--muted)}
+.simple-steps li::before{content:counter(s);width:44px;height:44px;border-radius:50%;background:var(--forest);color:var(--cream);display:grid;place-items:center;font-weight:800}
+.simple-steps b{color:var(--forest)}
+.disclaimer{margin-top:28px;font-size:14px;color:var(--muted);max-width:860px}
 /* hero photo */
 .hero-photo{position:relative;margin:0 0 0 auto;max-width:460px}
 .hero-photo img{width:100%;height:auto;aspect-ratio:900/900;object-fit:cover;object-position:50% 20%;border-radius:28px;box-shadow:0 24px 60px rgba(30,59,44,.18)}
@@ -241,8 +259,10 @@ footer{border-top:1px solid var(--line);padding:64px 0 40px;font-size:16px}
 @media (max-width:980px){
   .nav-links,.nav .btn{display:none}
   .menu{display:block}
-  .hero-grid,.problem-grid,.faq-grid{grid-template-columns:1fr;gap:44px}
+  .split,.hero-grid,.problem-grid,.faq-grid,.about-grid,.aud-grid.two{grid-template-columns:1fr;gap:44px}
   .hero-photo{margin:0 auto}
+  .split.reverse .split-photo{order:2}
+  .tight{padding-bottom:72px}
   .hero-photo .float{left:12px}
   .steps,.aud-grid,.built-grid,.gap-grid,.platform-grid,.steps.five{grid-template-columns:1fr}
   .team-grid{grid-template-columns:repeat(2,1fr)}
@@ -272,24 +292,22 @@ footer{border-top:1px solid var(--line);padding:64px 0 40px;font-size:16px}
     <nav aria-label="Main">
       <ul class="nav-links">
         <li><a href="#how">How it works</a></li>
-        <li><a href="#partners">Partners</a></li>
-        <li><a href="#platform">Care model</a></li>
-        <li><a href="#patients">For patients</a></li>
+        <li><a href="#screenings">What we help with</a></li>
+        <li><a href="#partners">For partners</a></li>
         <li><a href="/about/">About</a></li>
         <li><a href="/careers/">Careers</a></li>
       </ul>
     </nav>
-    <a class="btn btn-primary" href="#contact">Partner with us</a>
+    <a class="btn btn-primary" href="#contact">Contact us</a>
     <details class="menu">
       <summary>Menu</summary>
       <ul>
         <li><a href="#how">How it works</a></li>
-        <li><a href="#partners">Partners</a></li>
-        <li><a href="#platform">Care model</a></li>
-        <li><a href="#patients">For patients</a></li>
+        <li><a href="#screenings">What we help with</a></li>
+        <li><a href="#partners">For partners</a></li>
         <li><a href="/about/">About</a></li>
         <li><a href="/careers/">Careers</a></li>
-        <li><a href="#contact">Partner with us</a></li>
+        <li><a href="#contact">Contact us</a></li>
       </ul>
     </details>
   </div>
@@ -301,18 +319,11 @@ footer{border-top:1px solid var(--line);padding:64px 0 40px;font-size:16px}
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">A virtual medical group for Medicaid</p>
-        <h1>Preventive care that <span>comes home.</span></h1>
-        <p class="lede">Robinhood Health partners with community health centers and states to bring cancer, diabetes, and kidney screening to Medicaid patients at home, starting in rural America. Our doctors and nurses handle everything, from the test kit to the follow-up.</p>
+        <h1>Care that <span>comes to you.</span></h1>
+        <p class="lede">Simple health screenings at home, from doctors and nurses who work with your community health center.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="#contact">Partner with us</a>
-          <a class="btn btn-ghost" href="#patients">Got a text from us?</a>
-        </div>
-        <div class="conditions">
-          <small>Today we screen for</small>
-          <span class="chip">Colon cancer</span>
-          <span class="chip">Diabetes</span>
-          <span class="chip">Kidney disease</span>
+          <a class="btn btn-primary" href="#patients">Got a text from us?</a>
+          <a class="btn btn-ghost" href="#partners">For health centers and states</a>
         </div>
       </div>
       <figure class="hero-photo">
@@ -322,229 +333,151 @@ footer{border-top:1px solid var(--line);padding:64px 0 40px;font-size:16px}
     </div>
   </section>
 
-  <!-- WHY -->
-  <section class="problem" id="why">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Why we exist</p>
-        <h2>Care gaps aren’t a motivation problem. They’re a distribution problem.</h2>
-        <p>Getting screened usually means finding an open appointment, taking an unpaid day off, and finding a ride. For people on Medicaid, especially in rural communities, it often never happens. The result is a gap that shows up in every measure, every year.</p>
+  <!-- VALUE CARDS -->
+  <section class="tight">
+    <div class="wrap built-grid">
+      <div class="built">
+        <h3>No appointment needed</h3>
+        <p>Your test comes in the mail. No day off, no ride, no waiting room.</p>
       </div>
-      <div class="gap-grid">
-        <div class="gap">
-          <h3>Colorectal cancer screening</h3>
-          <p class="measure">Share of eligible patients screened</p>
-          <div class="bar"><span>Commercial</span><i style="--w:56%"></i><b>56%</b></div>
-          <div class="bar"><span>Medicaid</span><i style="--w:39%"></i><b>39%</b></div>
-          <div class="bar sn"><span>Safety-net</span><i style="--w:43%"></i><b>43%</b></div>
-        </div>
-        <div class="gap">
-          <h3>Diabetes control</h3>
-          <p class="measure">Share with HbA1c under 8%</p>
-          <div class="bar"><span>Commercial</span><i style="--w:71%"></i><b>71%</b></div>
-          <div class="bar"><span>Medicaid</span><i style="--w:52%"></i><b>52%</b></div>
-          <div class="bar sn"><span>Safety-net</span><i style="--w:45%"></i><b>45%</b></div>
-        </div>
-        <div class="gap">
-          <h3>Kidney health evaluation</h3>
-          <p class="measure">Share of patients with diabetes evaluated</p>
-          <div class="bar"><span>Commercial</span><i style="--w:38%"></i><b>38%</b></div>
-          <div class="bar"><span>Medicaid</span><i style="--w:29%"></i><b>29%</b></div>
-          <div class="bar sn"><span>Safety-net</span><i style="--w:25%"></i><b>25%</b></div>
-        </div>
+      <div class="built">
+        <h3>Real doctors and nurses</h3>
+        <p>Our clinical team reviews every result and is with you for what comes next.</p>
       </div>
-      <div class="takeaway">
-        <p class="big">Colon cancer caught early: 9 in 10 people survive. Caught late: fewer than 2 in 10.</p>
-        <p>That’s why we bring the screening to the patient, instead of waiting for the patient to find the screening.</p>
+      <div class="built">
+        <h3>Connected to your health center</h3>
+        <p>We work on behalf of your health center, so your care stays in one place.</p>
       </div>
     </div>
   </section>
 
   <!-- HOW IT WORKS -->
-  <section id="how">
+  <section id="how" class="problem">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">How it works</p>
+        <h2>Three simple steps.</h2>
+        <ol class="simple-steps">
+          <li><span><b>We mail you a test.</b> It comes with easy instructions in English or Spanish.</span></li>
+          <li><span><b>You mail it back.</b> Our doctors and nurses review your result.</span></li>
+          <li><span><b>We text you what’s next.</b> If you need more care, we help you get it.</span></li>
+        </ol>
+      </div>
+      <figure class="split-photo">
+        <img src="/assets/home-test.jpg" alt="A man doing a health test at his kitchen table" width="900" height="649" loading="lazy" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- WHAT WE HELP WITH -->
+  <section id="screenings">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">How it works</p>
-        <h2>We bring the doctor’s office to the patient.</h2>
-        <p>Our partners send us a list of patients who are due. We take it from there and close the loop.</p>
+        <p class="eyebrow">What we help with</p>
+        <h2>Screenings that catch problems early.</h2>
       </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <h3>A simple test, mailed home</h3>
-          <p>We reach out by text on behalf of the patient’s health center and mail an easy at-home test. No appointment, no day off, no ride.</p>
+      <div class="built-grid">
+        <div class="built">
+          <h3>Colon cancer</h3>
+          <p>An easy at-home test for adults 45 and older.</p>
         </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <h3>Our doctors and nurses read the results</h3>
-          <p>A licensed physician orders every test and our clinical team reviews every result.</p>
+        <div class="built">
+          <h3>Diabetes</h3>
+          <p>A quick check on how your blood sugar has been doing.</p>
         </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <h3>We manage the follow-up</h3>
-          <p>Patients get results and next steps by text. If they need more care, our nurses help them get there, and the results go back to their health center.</p>
+        <div class="built">
+          <h3>Kidney health</h3>
+          <p>A simple test to make sure your kidneys are working well.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARE DESIGNED FOR YOU -->
+  <section class="problem" id="patients-intro">
+    <div class="wrap split reverse">
+      <figure class="split-photo">
+        <img src="/assets/patient-phone.jpg" alt="A smiling woman reading a text message on her phone" width="900" height="649" loading="lazy" />
+      </figure>
+      <div>
+        <h2>Care designed for your life.</h2>
+        <p class="split-p">Getting screened shouldn’t mean taking a day off work or finding a ride. We bring the doctor’s office to you, and a real nurse is just a text away.</p>
+        <a class="btn btn-primary" href="#patients">Questions about your test</a>
       </div>
     </div>
   </section>
 
   <!-- PARTNERS -->
-  <section class="audiences" id="partners">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Who we work with</p>
-        <h2>Built in partnership with the people already caring for these communities.</h2>
-        <p>We don’t replace the local health center. We become a contracted provider alongside it, adding the clinical capacity to reach patients between visits.</p>
+  <section id="partners">
+    <div class="wrap split">
+      <div>
+        <h2>Working alongside health centers and states.</h2>
+        <p class="split-p">We partner with community health centers and state health departments to reach patients between visits, especially in rural communities. Our team handles outreach, testing, and follow-up, and results go back to the health center.</p>
+        <div class="hero-ctas" style="margin-top:24px">
+          <a class="btn btn-primary" href="#contact">Work with us</a>
+          <a class="btn btn-ghost" href="/fqhc/">For health centers</a>
+        </div>
       </div>
-      <div class="aud-grid">
-        <div class="aud">
-          <p class="tag">Community health centers</p>
-          <h3>Close screening gaps without adding staff.</h3>
-          <ul>
-            <li>Send us a patient list; our physicians order and our nurses follow up</li>
-            <li>Results flow back for UDS and HEDIS credit</li>
-            <li>No EHR integration project</li>
-            <li>Patients stay connected to their medical home</li>
-          </ul>
-          <a class="more" href="/fqhc/">For health centers →</a>
-        </div>
-        <div class="aud">
-          <p class="tag">State health departments</p>
-          <h3>A ready-to-run program for rural health.</h3>
-          <ul>
-            <li>We recruit and support health centers across the state</li>
-            <li>Paid when screenings get done</li>
-            <li>Clear reporting on reach, completion, and follow-up</li>
-            <li>Built for rural and hard-to-reach patients</li>
-          </ul>
-          <a class="more" href="#contact">Talk to our team →</a>
-        </div>
-        <div class="aud">
-          <p class="tag">Patients</p>
-          <h3>Care that fits your life.</h3>
-          <ul>
-            <li>Screening from your kitchen table</li>
-            <li>Real doctors and nurses on your results</li>
-            <li>Help in English and Spanish</li>
-          </ul>
-          <a class="more" href="#patients">Questions about your test →</a>
-        </div>
+      <figure class="split-photo">
+        <img src="/assets/patient-portrait.jpg" alt="A man resting by a window at home" width="863" height="1000" loading="lazy" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- STORY + JOIN -->
+  <section class="audiences">
+    <div class="wrap aud-grid two">
+      <div class="aud">
+        <h3>Our story</h3>
+        <p class="aud-p">Robinhood Health is a virtual medical group built to make preventive care simple for the people who need it most.</p>
+        <a class="more" href="/about/">Read more →</a>
+      </div>
+      <div class="aud">
+        <h3>Join us</h3>
+        <p class="aud-p">Help us bring care home to communities across the country.</p>
+        <a class="more" href="/careers/">See open roles →</a>
       </div>
     </div>
   </section>
 
-  <!-- CARE MODEL -->
-  <section id="platform">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Our care model</p>
-        <h2>Doctors and technology under one roof.</h2>
-        <p>We’re a doctor’s office, not a software company. We run the whole process in house, with tools we built to do the busywork so our clinicians can focus on patients.</p>
-      </div>
-      <div class="built-grid">
-        <div class="built lead">
-          <p class="kicker">People</p>
-          <h3>Our clinical care team</h3>
-          <p>Licensed physicians and population health nurses who order every test, review every result, and own every follow-up. They are always in charge.</p>
-        </div>
-        <div class="built">
-          <p class="kicker">Sherwood</p>
-          <h3>Our in-house clinical system</h3>
-          <p>Finds who’s overdue, routes orders for physician sign-off, tracks every kit, and sends results back to the health center.</p>
-        </div>
-        <div class="built">
-          <p class="kicker">Mariann</p>
-          <h3>AI assistant to our nurses</h3>
-          <p>Texts patients in English and Spanish, answers questions in plain language, and hands off to a nurse when it matters. She never diagnoses or prescribes.</p>
-        </div>
-      </div>
-      <div class="road" style="margin-top:22px">
-        <div class="road-col now">
-          <div class="yr"><b>Today</b><span>2026</span></div>
-          <ul><li>Colorectal cancer screening</li><li>Diabetes monitoring</li><li>Kidney health</li></ul>
-        </div>
-        <div class="road-col">
-          <div class="yr"><b>Next</b><span>2027</span></div>
-          <ul><li>Cervical cancer screening</li><li>Immunizations</li><li>Medication management</li><li>Virtual urgent care</li></ul>
-        </div>
-      </div>
-      <p class="note">One process today. More every year. Same team, same technology, same health centers.</p>
-    </div>
-  </section>
-
-  <!-- PATIENT FAQ -->
+  <!-- FAQ -->
   <section class="faq" id="patients">
     <div class="wrap faq-grid">
       <div>
-        <p class="eyebrow">For patients</p>
-        <h2>Got a text or a test kit from us?</h2>
-        <p class="lede" style="margin-top:16px">We work on behalf of your community health center to make screenings easier. Here’s what to know.</p>
+        <h2>Still have questions?</h2>
+        <p class="lede" style="margin-top:16px">We’re here to help. Email us at <a href="mailto:info@robinhoodhealth.co">info@robinhoodhealth.co</a>.</p>
       </div>
       <div>
         <details class="q" open>
-          <summary>Who is Robinhood Health?</summary>
-          <p>We’re a virtual medical group that partners with your community health center. Our doctors and nurses help you get the screenings you’re due for, from home.</p>
-        </details>
-        <details class="q">
           <summary>Is the text message really from you?</summary>
-          <p>Yes. We text on behalf of your health center. We will never ask for your bank or credit card information by text. If you’re unsure, call your health center or email us at <a href="mailto:info@robinhoodhealth.co">info@robinhoodhealth.co</a>.</p>
+          <p>Yes. We text on behalf of your health center. We will never ask for your bank or credit card information by text. If you’re unsure, call your health center.</p>
         </details>
         <details class="q">
           <summary>How do I do the test?</summary>
-          <p>Your kit comes with simple step-by-step instructions. Follow them at home and mail the kit back. Text us anytime if you have a question.</p>
+          <p>Your kit comes with simple step-by-step instructions. Follow them at home and mail the kit back. Text us anytime with questions.</p>
         </details>
         <details class="q">
           <summary>How do I get my results?</summary>
-          <p>A member of our clinical team reviews every result. We’ll text you when it’s ready, and if you need follow-up care, our nurses will help you set it up.</p>
+          <p>Our clinical team reviews every result. We’ll text you when it’s ready, and our nurses will help you with any next steps.</p>
         </details>
         <details class="q">
           <summary>How do I stop the texts?</summary>
-          <p>Reply STOP at any time. You can also reach us at <a href="mailto:info@robinhoodhealth.co">info@robinhoodhealth.co</a>.</p>
-        </details>
-        <p class="emergency"><b>This is not for emergencies.</b> If you’re having a medical emergency, call 911. If you’re in crisis, call or text 988.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PARTNER FAQ -->
-  <section class="faq-plain" id="faq">
-    <div class="wrap faq-grid">
-      <div>
-        <p class="eyebrow">For partners</p>
-        <h2>Questions we hear most often.</h2>
-      </div>
-      <div>
-        <details class="q" open>
-          <summary>Do we need to integrate with your systems?</summary>
-          <p>No. We pull clinical history through the Carequality and Commonwell national networks and send results back to your EHR. Your only lift is sending us a patient list and receiving results.</p>
-        </details>
-        <details class="q">
-          <summary>Who is the provider of record?</summary>
-          <p>Robinhood Health. Our physicians sign each order, and our nurses manage each abnormal result. This is a contracted care service, not a software tool.</p>
-        </details>
-        <details class="q">
-          <summary>How fast can we start?</summary>
-          <p>Paperwork and BAA in week one, first patient outreach in weeks two through four. Most partners are live within 45 days.</p>
-        </details>
-        <details class="q">
-          <summary>How is patient data protected?</summary>
-          <p>We are fully HIPAA compliant, with a BAA in place with every partner. Data is encrypted in transit and at rest, access is role-based, and every action is logged.</p>
+          <p>Reply STOP at any time.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- CONTACT -->
   <section class="cta" id="contact">
     <div class="wrap">
       <div class="cta-box">
         <div>
-          <h2>Let’s make Medicaid simple, together.</h2>
-          <p>Health centers, state health departments, and health plans: tell us about your patients, and we’ll show you how a partnership works.</p>
+          <h2>Get in touch.</h2>
+          <p>Patients, health centers, and state partners: we’d love to hear from you.</p>
         </div>
         <div class="cta-actions">
-          <a class="btn btn-light" href="mailto:info@robinhoodhealth.co?subject=Partnering%20with%20Robinhood%20Health">Partner with us</a>
-          <a class="btn btn-ghost" href="mailto:info@robinhoodhealth.co">info@robinhoodhealth.co</a>
+          <a class="btn btn-light" href="mailto:info@robinhoodhealth.co">info@robinhoodhealth.co</a>
         </div>
       </div>
     </div>
@@ -556,23 +489,22 @@ footer{border-top:1px solid var(--line);padding:64px 0 40px;font-size:16px}
     <div class="foot-grid">
       <div>
         <a class="brand" href="/"><img src="/assets/rh-logo-256.png" alt="" width="40" height="40" />Robinhood Health</a>
-        <p>A virtual medical group closing preventive screening gaps for Medicaid patients.</p>
+        <p>Health screenings from home, in partnership with your community health center.</p>
       </div>
       <div>
         <h4>Care</h4>
         <ul>
+          <li><a href="#screenings">What we help with</a></li>
           <li><a href="#how">How it works</a></li>
-          <li><a href="#patients">For patients</a></li>
-          <li><a href="#platform">Care model</a></li>
-          <li><a href="#faq">Partner questions</a></li>
+          <li><a href="#patients">Questions</a></li>
         </ul>
       </div>
       <div>
-        <h4>Partners</h4>
+        <h4>Work with us</h4>
         <ul>
           <li><a href="/fqhc/">For health centers</a></li>
           <li><a href="/mco/">For Medicaid plans</a></li>
-          <li><a href="#contact">Partner with us</a></li>
+          <li><a href="#contact">Contact us</a></li>
         </ul>
       </div>
       <div>
@@ -585,6 +517,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 40px;font-size:16px}
         </ul>
       </div>
     </div>
+    <p class="disclaimer">Not for emergencies: if you are having a medical emergency, call 911. If you are in crisis, call or text 988. Care is provided by licensed clinicians of Robinhood Health.</p>
     <div class="legal">
       <span>© 2026 RH Health Inc., dba Robinhood Health · Los Angeles, CA</span>
       <nav aria-label="Legal">
